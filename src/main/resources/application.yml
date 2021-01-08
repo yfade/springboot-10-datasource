@@ -10,7 +10,18 @@ spring:
       stat-view-servlet:
         enabled: true
         url-pattern: /druid/*
-
+        login-username: admin
+        login-password: admin
+      filters: wall
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          enabled: true
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+      aop-patterns: com.mld.springboot10datasource.*
 
 
   jdbc:
