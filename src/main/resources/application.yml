@@ -27,6 +27,12 @@ spring:
   jdbc:
     template:
       query-timeout: 3
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+#    默认使用Lettuce客户端，如果想使用Jedis则需 引入jedis依赖并要配置client-type
+    client-type: jedis
 
 #mybatis:
 #  mapper-locations: classpath:mapper/*.xml
@@ -35,4 +41,5 @@ spring:
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
+
 
