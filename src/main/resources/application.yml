@@ -4,7 +4,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-#    filters: stat,wall
+    #    filters: stat,wall
 
     druid:
       stat-view-servlet:
@@ -31,7 +31,7 @@ spring:
     host: 127.0.0.1
     port: 6379
     password: 123456
-#    默认使用Lettuce客户端，如果想使用Jedis则需 引入jedis依赖并要配置client-type
+    #    默认使用Lettuce客户端，如果想使用Jedis则需 引入jedis依赖并要配置client-type
     client-type: jedis
 
 #mybatis:
@@ -43,3 +43,29 @@ mybatis-plus:
     map-underscore-to-camel-case: true
 
 
+
+management:
+  endpoints:
+    enabled-by-default: false #默认开启所有端点 true
+    web:  #以web方式暴露端点
+      exposure:
+        include: '*' #暴露所有端点
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+    metrics:
+      enabled: true
+    beans:
+      enabled: true
+    info:
+      enabled: true
+
+
+#    web:
+#      exposure:
+#        include: '*'
+info:
+  appName: springBoot10
+  myProp: kkkk
+  mavenMess: @project.artifactId@  #获取pom文件中的信息
