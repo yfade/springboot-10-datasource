@@ -33,6 +33,12 @@ spring:
     password: 123456
     #    默认使用Lettuce客户端，如果想使用Jedis则需 引入jedis依赖并要配置client-type
     client-type: jedis
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888
+        instance:
+          prefer-ip: true
 
 #mybatis:
 #  mapper-locations: classpath:mapper/*.xml
@@ -41,12 +47,13 @@ spring:
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印SQL
 
 
 
 management:
   endpoints:
-    enabled-by-default: false #默认开启所有端点 true
+    enabled-by-default: true #默认开启所有端点 true
     web:  #以web方式暴露端点
       exposure:
         include: '*' #暴露所有端点
